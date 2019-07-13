@@ -1,24 +1,38 @@
 
 // show loading screen: https://docs.mapbox.com/mapbox.js/example/v1.0.0/show-loading-screen/
 var coords_center = [8.501694, 47.376888];
+var change = true;
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaW1mZWxkIiwiYSI6ImNqMzR2aTE0dDAwaGYyd3Fncmc1ODRkemcifQ.HTl7csPq_0VP3yO28G2u8Q';
 	var map = new mapboxgl.Map({
 		container: 'map',
 		center: [8.531694, 47.376888],
-		pitch:80,
-		zoom: 15,
-    minZoom:13,
+		pitch: change,
+		zoom: 13,
+    minZoom:12,
     maxZoom:16,
 		style: 'mapbox://styles/imfeld/cjxhlidyx3jq71crnvoxgp5ns'
 	});
+
 
 var url = "../data/churches.geojson";
 var loader = document.getElementById("loader");
 
 startLoading();
+//mapload();
 
 map.on('load', function() {
+
+  mapload();
+  finishedLoading();
+
+
+});
+
+
+
+
+function mapload() {
     console.log("map startloading");
     map.addSource("my-data", {
       type: "geojson",
@@ -39,8 +53,9 @@ map.on('load', function() {
   });
 
 $.getJSON("data/points.geojson", function(geojson){
+  console.log("hello");
   geojson.features.forEach(function(marker){
-    //console.log(marker.properties.latitude);
+    console.log(marker.properties.latitude);
     var el = document.createElement('div');
     el.className = 'marker';
 
@@ -55,22 +70,23 @@ $.getJSON("data/points.geojson", function(geojson){
   })
 })
 
-finishedLoading();
+
+}
 
 
-});
+$('#toggle').click(function() {
 
-// map.on("click", function(e){
-//   //map.setView([e.lngLat.lat, e.lngLat.lng], 12);
-//   map.flyTo({
-//   center: [
-//     e.lngLat.lng,
-//     e.lngLat.lat],
-//     zoom: 17
-//   });
-//   //console.log(e.lngLat.lat, e);
-// })
+  if (change){
+    map.setPitch(90);
+    change = false;
+  }
+  else {
+    map.setPitch(0);
+    change = true;
+  }
 
+
+})
 
 
 function startLoading() {
