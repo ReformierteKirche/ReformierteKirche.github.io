@@ -15,7 +15,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaW1mZWxkIiwiYSI6ImNqMzR2aTE0dDAwaGYyd3Fncmc1O
 	});
 
 
-var url = "../data/churches.geojson";
+var url = "../data/churches2.geojson";
 var loader = document.getElementById("loader");
 
 startLoading();
@@ -45,7 +45,18 @@ function mapload() {
     'type': 'fill-extrusion',
     "source": 'my-data',
     'paint': {
-      'fill-extrusion-color': '#d90b2d',
+      'fill-extrusion-color': ['match', ['get', 'type', ],
+      'Kirche', '#084081',
+      'Kirche ','#084081',
+      'Kirchgemeindehaus', '#2b8cbe', 
+      'Kirchgemeindehaus ', '#2b8cbe',
+      'Pfarrhaus ', '#4eb3d3',
+      'Pfarrhaus', '#4eb3d3',
+      'Wohnen', '#7bccc4',
+      'Gewerbehaus & Geschäftshaus','#a8ddb5',
+      'Pfarrhaus + Kirche', '#e0f3db',
+      'Baurecht', '#ccebc5',
+      '#ccc'],
       'fill-extrusion-height': ['get', 'measuredHeight'],
       'fill-extrusion-base': 0,
       'fill-extrusion-opacity': 0.9
