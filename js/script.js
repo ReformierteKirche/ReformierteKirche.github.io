@@ -11,7 +11,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaW1mZWxkIiwiYSI6ImNqMzR2aTE0dDAwaGYyd3Fncmc1O
 		zoom: 13,
     minZoom:12,
     maxZoom:16,
-		style: 'mapbox://styles/imfeld/cjxhlidyx3jq71crnvoxgp5ns'
+		style: 'mapbox://styles/imfeld/cjxhlidyx3jq71crnvoxgp5ns',
+    attributionControl: false
 	});
 
 
@@ -31,14 +32,12 @@ map.on('load', function() {
 
 
 
-
 function mapload() {
     console.log("map startloading");
     map.addSource("my-data", {
       type: "geojson",
       data: url
     });
-
 
   map.addLayer({
     'id': 'extrusion',

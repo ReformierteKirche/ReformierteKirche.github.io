@@ -86,13 +86,13 @@
 
 	.legend {
 		background-color: #fff;
-		border-radius: 3px;
-		bottom: 30px;
+		border-radius: 5px;
+		bottom: 40px;
 		box-shadow: 0 1px 2px rgba(0,0,0,0.10);
 		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 		padding: 10px;
 		position: absolute;
-		right: 10px;
+		right: 40px;
 		z-index: 1;
 	}
 
@@ -110,7 +110,9 @@
 
 <body>
 <div id='map'>
-
+ <div id="attribution" class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-ctrl-bottom-right" style="position: fixed; bottom: 0; right: 30px bottom:10px;">
+        <a href="*">Built by <a href="http://www.melanieimfeld.com"> Melanie </a> </a>
+    </div>
 
 
 </div>
@@ -119,7 +121,8 @@
 </div>
 <div id='loader'> </div>
 <div class='legend'> 
-	<h4>Gebäudetypen</h4>
+	<h4 style='margin: 5px'>Gebäudetypen</h4>
+	<hr noshade>
 	<div><span style='background-color: #084081'></span>Kirche</div>
 	<div><span style='background-color: #2b8cbe'></span>Kirchgemeindehaus</div>
 	<div><span style='background-color: #4eb3d3'></span>Pfarrhaus</div>
