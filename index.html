@@ -44,6 +44,11 @@
 		position:absolute;
 		top:20px;
 		right:10px;
+		border: none;
+		 -moz-border-radius: 5px;
+ 		-webkit-border-radius: 5px;
+ 		border-radius: 6px;
+ 		padding: 7px;
 	}
 
 	#loader{
@@ -69,15 +74,35 @@
 	}
 
 
-		#loader.done {
-			background:rgba(255, 255, 255, 0);
-		}
+	#loader.done {
+		background:rgba(255, 255, 255, 0);
+	}
 
-		#loader.hide{
-			display:none;
-			transition:all 1s ease-out;
-	    	-webkit-transition:all 1s ease-out;
-		}
+	#loader.hide{
+		display:none;
+		transition:all 1s ease-out;
+	    -webkit-transition:all 1s ease-out;
+	}
+
+	.legend {
+		background-color: #fff;
+		border-radius: 3px;
+		bottom: 30px;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+		font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		padding: 10px;
+		position: absolute;
+		right: 10px;
+		z-index: 1;
+	}
+
+	.legend div span {
+		border-radius: 50%;
+		display: inline-block;
+		height: 10px;
+		margin-right: 5px;
+		width: 10px;
+	}
 
 </style>
 
@@ -93,6 +118,17 @@
 	<h1 style=" margin-top: 1px; margin-bottom: 1px"> Reformierte Kirchen der Stadt Zürich</h1> <hr noshade> <h3 style=" margin-top: 1px; margin-bottom: 1px">Anzahl verzeichnete Kirchen: 173</h3>
 </div>
 <div id='loader'> </div>
+<div class='legend'> 
+	<h4>Gebäudetypen</h4>
+	<div><span style='background-color: #084081'></span>Kirche</div>
+	<div><span style='background-color: #2b8cbe'></span>Kirchgemeindehaus</div>
+	<div><span style='background-color: #4eb3d3'></span>Pfarrhaus</div>
+	<div><span style='background-color: #7bccc4'></span>Wohnen</div>
+	<div><span style='background-color: #a8ddb5'></span>Gewerbe - & Geschäftshaus</div>
+	<div><span style='background-color: #e0f3db'></span>Pfarrhaus & Kirche</div>
+	<div><span style='background-color: #ccebc5'></span>Baurecht</div>
+	<div><span style='background-color: #ccc'></span>Sonstige</div>
+</div>
 <button id='toggle'> Switch 2D/3D</button>
 
 <script src="js/script.js"> </script>
